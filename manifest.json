@@ -1,0 +1,171 @@
+{
+  "formatVersion": 1,
+  "builder": {
+    "name": "@micharisma/multivitamin-build",
+    "version": "0.1.0"
+  },
+  "multivitamin": {
+    "name": "rubyllm",
+    "title": "RubyLLM multivitamin",
+    "language": "ruby",
+    "grammar": "ruby",
+    "repo": "MICharisma/rubyllm-multivitamin",
+    "features": [
+      "01-chat-basics"
+    ]
+  },
+  "commit": "7952b73e94fe076ac3bb6c7ad847581f1dbb030d",
+  "builtAt": "2026-11-26T12:23:16.454Z",
+  "features": [
+    {
+      "folder": "01-chat-basics",
+      "feature": "chat-basics",
+      "title": "Chat basics",
+      "covers": [
+        "RubyLLM.chat",
+        "RubyLLM.context",
+        "RubyLLM::Chat#ask",
+        "RubyLLM::Chat#max_output_tokens",
+        "RubyLLM::Chat#messages",
+        "RubyLLM::Chat#model",
+        "RubyLLM::Chat#say",
+        "RubyLLM::Chat#temperature",
+        "RubyLLM::Chat#with_instructions",
+        "RubyLLM::Chat#with_max_output_tokens",
+        "RubyLLM::Chat#with_model",
+        "RubyLLM::Chat#with_provider_options",
+        "RubyLLM::Chat#with_temperature",
+        "RubyLLM::Context#chat",
+        "RubyLLM::Message#content",
+        "RubyLLM::Message#cost",
+        "RubyLLM::Message#finish_reason",
+        "RubyLLM::Message#max_tokens?",
+        "RubyLLM::Message#model",
+        "RubyLLM::Message#raw",
+        "RubyLLM::Message#role",
+        "RubyLLM::Message#stopped?",
+        "RubyLLM::Message#thinking",
+        "RubyLLM::Message#tokens"
+      ],
+      "examples": [
+        {
+          "folder": "01-bengaluru-inverter-board",
+          "title": "Bengaluru inverter board",
+          "source": "01-chat-basics/01-bengaluru-inverter-board/inverter_briefing.rb",
+          "html": "01-chat-basics/01-bengaluru-inverter-board/inverter_briefing.rb.html",
+          "highlights": "01-chat-basics/01-bengaluru-inverter-board/highlights.json",
+          "lesson": "01-chat-basics/01-bengaluru-inverter-board/lesson.json",
+          "stepCount": 5
+        },
+        {
+          "folder": "02-bologna-manuscript-cabinet",
+          "title": "Bologna manuscript cabinet",
+          "source": "01-chat-basics/02-bologna-manuscript-cabinet/manuscript_inventory.rb",
+          "html": "01-chat-basics/02-bologna-manuscript-cabinet/manuscript_inventory.rb.html",
+          "highlights": "01-chat-basics/02-bologna-manuscript-cabinet/highlights.json",
+          "lesson": "01-chat-basics/02-bologna-manuscript-cabinet/lesson.json",
+          "stepCount": 4
+        },
+        {
+          "folder": "03-chaux-de-fonds-timing-card",
+          "title": "Chronometer timing card at La Chaux-de-Fonds",
+          "source": "01-chat-basics/03-chaux-de-fonds-timing-card/timing_card.rb",
+          "html": "01-chat-basics/03-chaux-de-fonds-timing-card/timing_card.rb.html",
+          "highlights": "01-chat-basics/03-chaux-de-fonds-timing-card/highlights.json",
+          "lesson": "01-chat-basics/03-chaux-de-fonds-timing-card/lesson.json",
+          "stepCount": 3
+        },
+        {
+          "folder": "04-lagos-ankara-bale-log",
+          "title": "Lagos ankara bale log for the morning receiving",
+          "source": "01-chat-basics/04-lagos-ankara-bale-log/morning_bale.rb",
+          "html": "01-chat-basics/04-lagos-ankara-bale-log/morning_bale.rb.html",
+          "highlights": "01-chat-basics/04-lagos-ankara-bale-log/highlights.json",
+          "lesson": "01-chat-basics/04-lagos-ankara-bale-log/lesson.json",
+          "stepCount": 3
+        },
+        {
+          "folder": "05-dakar-biennale-booth",
+          "title": "Dakar Biennale booth assignment",
+          "source": "01-chat-basics/05-dakar-biennale-booth/booth_assignment.rb",
+          "html": "01-chat-basics/05-dakar-biennale-booth/booth_assignment.rb.html",
+          "highlights": "01-chat-basics/05-dakar-biennale-booth/highlights.json",
+          "lesson": "01-chat-basics/05-dakar-biennale-booth/lesson.json",
+          "stepCount": 3
+        },
+        {
+          "folder": "06-tallinn-readiness-probe",
+          "title": "Tallinn readiness probe check",
+          "source": "01-chat-basics/06-tallinn-readiness-probe/probe_check.rb",
+          "html": "01-chat-basics/06-tallinn-readiness-probe/probe_check.rb.html",
+          "highlights": "01-chat-basics/06-tallinn-readiness-probe/highlights.json",
+          "lesson": "01-chat-basics/06-tallinn-readiness-probe/lesson.json",
+          "stepCount": 5
+        },
+        {
+          "folder": "07-buenos-aires-bandoneon-ledger",
+          "title": "Buenos Aires bandoneón ledger",
+          "source": "01-chat-basics/07-buenos-aires-bandoneon-ledger/bandoneon_ledger.rb",
+          "html": "01-chat-basics/07-buenos-aires-bandoneon-ledger/bandoneon_ledger.rb.html",
+          "highlights": "01-chat-basics/07-buenos-aires-bandoneon-ledger/highlights.json",
+          "lesson": "01-chat-basics/07-buenos-aires-bandoneon-ledger/lesson.json",
+          "stepCount": 3
+        },
+        {
+          "folder": "08-johannesburg-clinic-vitals",
+          "title": "Johannesburg clinic vitals round",
+          "source": "01-chat-basics/08-johannesburg-clinic-vitals/vitals_round.rb",
+          "html": "01-chat-basics/08-johannesburg-clinic-vitals/vitals_round.rb.html",
+          "highlights": "01-chat-basics/08-johannesburg-clinic-vitals/highlights.json",
+          "lesson": "01-chat-basics/08-johannesburg-clinic-vitals/lesson.json",
+          "stepCount": 3
+        },
+        {
+          "folder": "09-mexico-city-soundstage-call",
+          "title": "Mexico City soundstage call sheet",
+          "source": "01-chat-basics/09-mexico-city-soundstage-call/call_sheet.rb",
+          "html": "01-chat-basics/09-mexico-city-soundstage-call/call_sheet.rb.html",
+          "highlights": "01-chat-basics/09-mexico-city-soundstage-call/highlights.json",
+          "lesson": "01-chat-basics/09-mexico-city-soundstage-call/lesson.json",
+          "stepCount": 5
+        },
+        {
+          "folder": "10-brussels-tempering-board",
+          "title": "Brussels chocolate tempering board",
+          "source": "01-chat-basics/10-brussels-tempering-board/tempering_board.rb",
+          "html": "01-chat-basics/10-brussels-tempering-board/tempering_board.rb.html",
+          "highlights": "01-chat-basics/10-brussels-tempering-board/highlights.json",
+          "lesson": "01-chat-basics/10-brussels-tempering-board/lesson.json",
+          "stepCount": 4
+        },
+        {
+          "folder": "11-kyoto-kimono-atelier",
+          "title": "Kyoto kimono atelier ticket",
+          "source": "01-chat-basics/11-kyoto-kimono-atelier/kimono_ticket.rb",
+          "html": "01-chat-basics/11-kyoto-kimono-atelier/kimono_ticket.rb.html",
+          "highlights": "01-chat-basics/11-kyoto-kimono-atelier/highlights.json",
+          "lesson": "01-chat-basics/11-kyoto-kimono-atelier/lesson.json",
+          "stepCount": 5
+        },
+        {
+          "folder": "12-singapore-accession-tag",
+          "title": "Accession tag for the Singapore Botanic Gardens",
+          "source": "01-chat-basics/12-singapore-accession-tag/accession_notice.rb",
+          "html": "01-chat-basics/12-singapore-accession-tag/accession_notice.rb.html",
+          "highlights": "01-chat-basics/12-singapore-accession-tag/highlights.json",
+          "lesson": "01-chat-basics/12-singapore-accession-tag/lesson.json",
+          "stepCount": 5
+        },
+        {
+          "folder": "13-warsaw-tram-depot-handover",
+          "title": "Warsaw tram depot handover across several boards",
+          "source": "01-chat-basics/13-warsaw-tram-depot-handover/depot_handover.rb",
+          "html": "01-chat-basics/13-warsaw-tram-depot-handover/depot_handover.rb.html",
+          "highlights": "01-chat-basics/13-warsaw-tram-depot-handover/highlights.json",
+          "lesson": "01-chat-basics/13-warsaw-tram-depot-handover/lesson.json",
+          "stepCount": 5
+        }
+      ]
+    }
+  ]
+}

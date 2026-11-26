@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "files": {
+    "inverter_briefing.rb": {
+      "regions": [
+        {
+          "name": "open-chat",
+          "startLine": 57,
+          "endLine": 57,
+          "focus": {
+            "startLine": 57,
+            "startColumn": 13,
+            "endLine": 57,
+            "endColumn": 25
+          }
+        },
+        {
+          "name": "configure-clerk",
+          "startLine": 58,
+          "endLine": 59,
+          "focus": {
+            "startLine": 58,
+            "startColumn": 6,
+            "endLine": 58,
+            "endColumn": 42
+          }
+        },
+        {
+          "name": "read-board",
+          "startLine": 61,
+          "endLine": 61,
+          "focus": {
+            "startLine": 61,
+            "startColumn": 16,
+            "endLine": 61,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "ask-about-aarti",
+          "startLine": 62,
+          "endLine": 62,
+          "focus": {
+            "startLine": 62,
+            "startColumn": 18,
+            "endLine": 62,
+            "endColumn": 42
+          }
+        },
+        {
+          "name": "read-roles",
+          "startLine": 67,
+          "endLine": 67,
+          "focus": {
+            "startLine": 67,
+            "startColumn": 15,
+            "endLine": 67,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "read-usage",
+          "startLine": 68,
+          "endLine": 75,
+          "focus": {
+            "startLine": 68,
+            "startColumn": 8,
+            "endLine": 75,
+            "endColumn": 44
+          }
+        }
+      ]
+    }
+  }
+}

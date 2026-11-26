@@ -1,0 +1,56 @@
+{
+  "title": "Dakar Biennale booth assignment",
+  "source": "booth_assignment.rb",
+  "steps": [
+    {
+      "label": "Ask for Chioma's booth assignment",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "assign-booth",
+          "role": "primary"
+        },
+        {
+          "name": "configure-registrar",
+          "role": "setup"
+        },
+        {
+          "name": "read-assignment",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Find the original user turn by its role",
+      "api": "RubyLLM::Chat#messages",
+      "regions": [
+        {
+          "name": "find-user-turn",
+          "role": "primary"
+        },
+        {
+          "name": "assign-booth",
+          "role": "setup"
+        },
+        {
+          "name": "recover-board",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Read the full hanging board from that turn",
+      "api": "RubyLLM::Message#content",
+      "regions": [
+        {
+          "name": "recover-board",
+          "role": "primary"
+        },
+        {
+          "name": "find-user-turn",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

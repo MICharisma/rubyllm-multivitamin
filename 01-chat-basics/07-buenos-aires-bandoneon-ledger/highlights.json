@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "files": {
+    "bandoneon_ledger.rb": {
+      "regions": [
+        {
+          "name": "configure-technician",
+          "startLine": 47,
+          "endLine": 49,
+          "focus": {
+            "startLine": 47,
+            "startColumn": 6,
+            "endLine": 49,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "ask-reed",
+          "startLine": 51,
+          "endLine": 51,
+          "focus": {
+            "startLine": 51,
+            "startColumn": 13,
+            "endLine": 51,
+            "endColumn": 36
+          }
+        },
+        {
+          "name": "ask-overhaul",
+          "startLine": 52,
+          "endLine": 52,
+          "focus": {
+            "startLine": 52,
+            "startColumn": 17,
+            "endLine": 52,
+            "endColumn": 44
+          }
+        },
+        {
+          "name": "read-ledger",
+          "startLine": 57,
+          "endLine": 58,
+          "focus": {
+            "startLine": 58,
+            "startColumn": 20,
+            "endLine": 58,
+            "endColumn": 83
+          }
+        }
+      ]
+    }
+  }
+}

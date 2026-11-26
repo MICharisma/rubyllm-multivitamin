@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "files": {
+    "accession_notice.rb": {
+      "regions": [
+        {
+          "name": "configure-clerk",
+          "startLine": 59,
+          "endLine": 61,
+          "focus": {
+            "startLine": 59,
+            "startColumn": 6,
+            "endLine": 61,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "cap-slip",
+          "startLine": 62,
+          "endLine": 62,
+          "focus": {
+            "startLine": 62,
+            "startColumn": 6,
+            "endLine": 62,
+            "endColumn": 39
+          }
+        },
+        {
+          "name": "ask-slip",
+          "startLine": 64,
+          "endLine": 64,
+          "focus": {
+            "startLine": 64,
+            "startColumn": 16,
+            "endLine": 64,
+            "endColumn": 39
+          }
+        },
+        {
+          "name": "check-length",
+          "startLine": 65,
+          "endLine": 66,
+          "focus": {
+            "startLine": 66,
+            "startColumn": 42,
+            "endLine": 66,
+            "endColumn": 61
+          }
+        },
+        {
+          "name": "clear-cap",
+          "startLine": 69,
+          "endLine": 69,
+          "focus": {
+            "startLine": 69,
+            "startColumn": 8,
+            "endLine": 69,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "ask-again",
+          "startLine": 70,
+          "endLine": 70,
+          "focus": {
+            "startLine": 70,
+            "startColumn": 17,
+            "endLine": 70,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "read-status",
+          "startLine": 84,
+          "endLine": 86,
+          "focus": {
+            "startLine": 85,
+            "startColumn": 23,
+            "endLine": 85,
+            "endColumn": 40
+          }
+        }
+      ]
+    }
+  }
+}

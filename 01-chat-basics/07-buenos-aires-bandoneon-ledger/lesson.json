@@ -1,0 +1,52 @@
+{
+  "title": "Buenos Aires bandoneón ledger",
+  "source": "bandoneon_ledger.rb",
+  "steps": [
+    {
+      "label": "Use say to ask about the reed ledger",
+      "api": "RubyLLM::Chat#say",
+      "regions": [
+        {
+          "name": "ask-reed",
+          "role": "primary"
+        },
+        {
+          "name": "configure-technician",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask when the overhaul is due on the same chat",
+      "api": "RubyLLM::Chat#say",
+      "regions": [
+        {
+          "name": "ask-overhaul",
+          "role": "primary"
+        },
+        {
+          "name": "ask-reed",
+          "role": "setup"
+        },
+        {
+          "name": "read-ledger",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Read each transcript entry with its role and content",
+      "api": "RubyLLM::Chat#messages",
+      "regions": [
+        {
+          "name": "read-ledger",
+          "role": "primary"
+        },
+        {
+          "name": "ask-overhaul",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "files": {
+    "depot_handover.rb": {
+      "regions": [
+        {
+          "name": "instruct-dispatcher",
+          "startLine": 58,
+          "endLine": 60,
+          "focus": {
+            "startLine": 59,
+            "startColumn": 6,
+            "endLine": 59,
+            "endColumn": 42
+          }
+        },
+        {
+          "name": "brief-relief",
+          "startLine": 62,
+          "endLine": 62,
+          "focus": {
+            "startLine": 62,
+            "startColumn": 23,
+            "endLine": 62,
+            "endColumn": 48
+          }
+        },
+        {
+          "name": "ask-locker",
+          "startLine": 62,
+          "endLine": 62,
+          "focus": {
+            "startLine": 62,
+            "startColumn": 58,
+            "endLine": 62,
+            "endColumn": 83
+          }
+        },
+        {
+          "name": "record-answer",
+          "startLine": 64,
+          "endLine": 65,
+          "focus": {
+            "startLine": 65,
+            "startColumn": 35,
+            "endLine": 65,
+            "endColumn": 56
+          }
+        },
+        {
+          "name": "record-tokens",
+          "startLine": 66,
+          "endLine": 68,
+          "focus": {
+            "startLine": 67,
+            "startColumn": 50,
+            "endLine": 67,
+            "endColumn": 64
+          }
+        },
+        {
+          "name": "read-roles",
+          "startLine": 71,
+          "endLine": 71,
+          "focus": {
+            "startLine": 71,
+            "startColumn": 36,
+            "endLine": 71,
+            "endColumn": 52
+          }
+        }
+      ]
+    }
+  }
+}

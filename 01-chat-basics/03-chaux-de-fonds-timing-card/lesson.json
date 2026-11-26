@@ -1,0 +1,48 @@
+{
+  "title": "Chronometer timing card at La Chaux-de-Fonds",
+  "source": "timing_card.rb",
+  "steps": [
+    {
+      "label": "Set the bench instructions and choose zero temperature",
+      "api": "RubyLLM::Chat#with_temperature",
+      "regions": [
+        {
+          "name": "configure-bench",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the three-line timing slate",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-for-slate",
+          "role": "primary"
+        },
+        {
+          "name": "configure-bench",
+          "role": "setup"
+        },
+        {
+          "name": "read-slate",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Copy the reply onto the slate and keep its finish reason",
+      "api": "RubyLLM::Message#content",
+      "regions": [
+        {
+          "name": "read-slate",
+          "role": "primary"
+        },
+        {
+          "name": "ask-for-slate",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

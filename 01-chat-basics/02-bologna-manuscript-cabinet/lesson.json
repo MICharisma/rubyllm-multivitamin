@@ -1,0 +1,66 @@
+{
+  "title": "Bologna manuscript cabinet",
+  "source": "manuscript_inventory.rb",
+  "steps": [
+    {
+      "label": "Ask which drawer holds the vellum and how many cradles are in C",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-cabinet",
+          "role": "primary"
+        },
+        {
+          "name": "configure-chat",
+          "role": "setup"
+        },
+        {
+          "name": "read-answer",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Read the inventory sentence and its role",
+      "api": "RubyLLM::Message#content",
+      "regions": [
+        {
+          "name": "read-answer",
+          "role": "primary"
+        },
+        {
+          "name": "ask-cabinet",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Compare the model on the reply with the model on the chat",
+      "api": "RubyLLM::Message#model",
+      "regions": [
+        {
+          "name": "compare-models",
+          "role": "primary"
+        },
+        {
+          "name": "configure-chat",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Read why the answer ended and how many tokens it used",
+      "api": "RubyLLM::Message#tokens",
+      "regions": [
+        {
+          "name": "read-usage",
+          "role": "primary"
+        },
+        {
+          "name": "ask-cabinet",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

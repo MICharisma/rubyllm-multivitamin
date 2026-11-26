@@ -1,0 +1,76 @@
+{
+  "title": "Tallinn readiness probe check",
+  "source": "probe_check.rb",
+  "steps": [
+    {
+      "label": "Ask the first model about the configured timeout",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-probe",
+          "role": "primary"
+        },
+        {
+          "name": "configure-probe",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Switch the existing chat to the spare model",
+      "api": "RubyLLM::Chat#with_model",
+      "regions": [
+        {
+          "name": "switch-model",
+          "role": "primary"
+        },
+        {
+          "name": "ask-probe",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask about the six-second timeout with the earlier turn still present",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-spare",
+          "role": "primary"
+        },
+        {
+          "name": "switch-model",
+          "role": "setup"
+        },
+        {
+          "name": "find-earlier-turn",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Ask the original probe question on a fresh chat with the second model",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "fresh-probe",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Read which model answered each question",
+      "api": "RubyLLM::Message#model",
+      "regions": [
+        {
+          "name": "returned-models",
+          "role": "primary"
+        },
+        {
+          "name": "fresh-probe",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

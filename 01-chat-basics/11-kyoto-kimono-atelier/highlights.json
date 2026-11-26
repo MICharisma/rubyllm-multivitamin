@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "files": {
+    "kimono_ticket.rb": {
+      "regions": [
+        {
+          "name": "instruct-dresser",
+          "startLine": 76,
+          "endLine": 78,
+          "focus": {
+            "startLine": 77,
+            "startColumn": 6,
+            "endLine": 77,
+            "endColumn": 53
+          }
+        },
+        {
+          "name": "read-ticket",
+          "startLine": 79,
+          "endLine": 80,
+          "focus": {
+            "startLine": 79,
+            "startColumn": 14,
+            "endLine": 79,
+            "endColumn": 42
+          }
+        },
+        {
+          "name": "update-hem",
+          "startLine": 81,
+          "endLine": 82,
+          "focus": {
+            "startLine": 81,
+            "startColumn": 13,
+            "endLine": 81,
+            "endColumn": 38
+          }
+        },
+        {
+          "name": "instruct-bride",
+          "startLine": 84,
+          "endLine": 86,
+          "focus": {
+            "startLine": 85,
+            "startColumn": 6,
+            "endLine": 85,
+            "endColumn": 49
+          }
+        },
+        {
+          "name": "ask-bride",
+          "startLine": 87,
+          "endLine": 87,
+          "focus": {
+            "startLine": 87,
+            "startColumn": 20,
+            "endLine": 87,
+            "endColumn": 45
+          }
+        },
+        {
+          "name": "compare-histories",
+          "startLine": 93,
+          "endLine": 104,
+          "focus": {
+            "startLine": 93,
+            "startColumn": 8,
+            "endLine": 104,
+            "endColumn": 9
+          }
+        }
+      ]
+    }
+  }
+}

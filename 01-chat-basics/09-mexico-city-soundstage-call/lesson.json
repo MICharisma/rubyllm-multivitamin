@@ -1,0 +1,76 @@
+{
+  "title": "Mexico City soundstage call sheet",
+  "source": "call_sheet.rb",
+  "steps": [
+    {
+      "label": "Configure an OpenRouter context for the studio",
+      "api": "RubyLLM.context",
+      "regions": [
+        {
+          "name": "configure-studio",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Set the OpenRouter seed when opening a studio chat",
+      "api": "RubyLLM::Chat#with_provider_options",
+      "regions": [
+        {
+          "name": "set-seed",
+          "role": "primary"
+        },
+        {
+          "name": "open-studio-chat",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Hand over the call sheet before asking about the Patio unit",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-with-sheet",
+          "role": "primary"
+        },
+        {
+          "name": "hand-over-sheet",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask the same Patio question on a fresh chat",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-without-sheet",
+          "role": "primary"
+        },
+        {
+          "name": "open-studio-chat",
+          "role": "setup"
+        },
+        {
+          "name": "compare-transcripts",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Check which transcript contains the original sheet",
+      "api": "RubyLLM::Chat#messages",
+      "regions": [
+        {
+          "name": "compare-transcripts",
+          "role": "primary"
+        },
+        {
+          "name": "ask-with-sheet",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

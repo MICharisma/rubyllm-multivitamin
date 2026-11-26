@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "files": {
+    "morning_bale.rb": {
+      "regions": [
+        {
+          "name": "configure-clerk",
+          "startLine": 61,
+          "endLine": 63,
+          "focus": {
+            "startLine": 61,
+            "startColumn": 6,
+            "endLine": 63,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "log-bale",
+          "startLine": 65,
+          "endLine": 65,
+          "focus": {
+            "startLine": 65,
+            "startColumn": 17,
+            "endLine": 65,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "correct-length",
+          "startLine": 66,
+          "endLine": 66,
+          "focus": {
+            "startLine": 66,
+            "startColumn": 19,
+            "endLine": 66,
+            "endColumn": 48
+          }
+        },
+        {
+          "name": "recap-receiving",
+          "startLine": 67,
+          "endLine": 67,
+          "focus": {
+            "startLine": 67,
+            "startColumn": 14,
+            "endLine": 67,
+            "endColumn": 38
+          }
+        },
+        {
+          "name": "read-recap",
+          "startLine": 72,
+          "endLine": 75,
+          "focus": {
+            "startLine": 72,
+            "startColumn": 15,
+            "endLine": 72,
+            "endColumn": 28
+          }
+        }
+      ]
+    }
+  }
+}

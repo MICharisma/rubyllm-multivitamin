@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "files": {
+    "tempering_board.rb": {
+      "regions": [
+        {
+          "name": "instruct-chef",
+          "startLine": 51,
+          "endLine": 52,
+          "focus": {
+            "startLine": 51,
+            "startColumn": 6,
+            "endLine": 52,
+            "endColumn": 42
+          }
+        },
+        {
+          "name": "set-temperature",
+          "startLine": 53,
+          "endLine": 53,
+          "focus": {
+            "startLine": 53,
+            "startColumn": 6,
+            "endLine": 53,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "cap-reply",
+          "startLine": 54,
+          "endLine": 54,
+          "focus": {
+            "startLine": 54,
+            "startColumn": 6,
+            "endLine": 54,
+            "endColumn": 50
+          }
+        },
+        {
+          "name": "ask-with-cap",
+          "startLine": 55,
+          "endLine": 55,
+          "focus": {
+            "startLine": 55,
+            "startColumn": 19,
+            "endLine": 55,
+            "endColumn": 43
+          }
+        },
+        {
+          "name": "ask-with-defaults",
+          "startLine": 57,
+          "endLine": 59,
+          "focus": {
+            "startLine": 59,
+            "startColumn": 20,
+            "endLine": 59,
+            "endColumn": 45
+          }
+        },
+        {
+          "name": "read-settings",
+          "startLine": 64,
+          "endLine": 67,
+          "focus": {
+            "startLine": 64,
+            "startColumn": 8,
+            "endLine": 67,
+            "endColumn": 49
+          }
+        }
+      ]
+    }
+  }
+}

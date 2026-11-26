@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "files": {
+    "vitals_round.rb": {
+      "regions": [
+        {
+          "name": "open-round",
+          "startLine": 44,
+          "endLine": 46,
+          "focus": {
+            "startLine": 44,
+            "startColumn": 14,
+            "endLine": 44,
+            "endColumn": 26
+          }
+        },
+        {
+          "name": "ask-round",
+          "startLine": 50,
+          "endLine": 50,
+          "focus": {
+            "startLine": 50,
+            "startColumn": 14,
+            "endLine": 50,
+            "endColumn": 38
+          }
+        },
+        {
+          "name": "read-round",
+          "startLine": 53,
+          "endLine": 53,
+          "focus": {
+            "startLine": 53,
+            "startColumn": 15,
+            "endLine": 53,
+            "endColumn": 28
+          }
+        },
+        {
+          "name": "check-stop",
+          "startLine": 54,
+          "endLine": 55,
+          "focus": {
+            "startLine": 54,
+            "startColumn": 17,
+            "endLine": 54,
+            "endColumn": 31
+          }
+        }
+      ]
+    }
+  }
+}

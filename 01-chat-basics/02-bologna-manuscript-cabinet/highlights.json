@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "files": {
+    "manuscript_inventory.rb": {
+      "regions": [
+        {
+          "name": "configure-chat",
+          "startLine": 52,
+          "endLine": 54,
+          "focus": {
+            "startLine": 52,
+            "startColumn": 6,
+            "endLine": 54,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "ask-cabinet",
+          "startLine": 56,
+          "endLine": 56,
+          "focus": {
+            "startLine": 56,
+            "startColumn": 14,
+            "endLine": 56,
+            "endColumn": 40
+          }
+        },
+        {
+          "name": "read-answer",
+          "startLine": 59,
+          "endLine": 60,
+          "focus": {
+            "startLine": 59,
+            "startColumn": 17,
+            "endLine": 59,
+            "endColumn": 30
+          }
+        },
+        {
+          "name": "compare-models",
+          "startLine": 61,
+          "endLine": 62,
+          "focus": {
+            "startLine": 61,
+            "startColumn": 18,
+            "endLine": 61,
+            "endColumn": 29
+          }
+        },
+        {
+          "name": "read-usage",
+          "startLine": 63,
+          "endLine": 65,
+          "focus": {
+            "startLine": 64,
+            "startColumn": 22,
+            "endLine": 64,
+            "endColumn": 40
+          }
+        }
+      ]
+    }
+  }
+}

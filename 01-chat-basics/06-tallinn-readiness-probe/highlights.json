@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "files": {
+    "probe_check.rb": {
+      "regions": [
+        {
+          "name": "configure-probe",
+          "startLine": 57,
+          "endLine": 59,
+          "focus": {
+            "startLine": 57,
+            "startColumn": 6,
+            "endLine": 59,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "ask-probe",
+          "startLine": 60,
+          "endLine": 60,
+          "focus": {
+            "startLine": 60,
+            "startColumn": 19,
+            "endLine": 60,
+            "endColumn": 43
+          }
+        },
+        {
+          "name": "switch-model",
+          "startLine": 62,
+          "endLine": 65,
+          "focus": {
+            "startLine": 62,
+            "startColumn": 6,
+            "endLine": 62,
+            "endColumn": 21
+          }
+        },
+        {
+          "name": "ask-spare",
+          "startLine": 66,
+          "endLine": 66,
+          "focus": {
+            "startLine": 66,
+            "startColumn": 20,
+            "endLine": 66,
+            "endColumn": 44
+          }
+        },
+        {
+          "name": "fresh-probe",
+          "startLine": 68,
+          "endLine": 71,
+          "focus": {
+            "startLine": 71,
+            "startColumn": 21,
+            "endLine": 71,
+            "endColumn": 47
+          }
+        },
+        {
+          "name": "returned-models",
+          "startLine": 75,
+          "endLine": 80,
+          "focus": {
+            "startLine": 75,
+            "startColumn": 8,
+            "endLine": 80,
+            "endColumn": 44
+          }
+        },
+        {
+          "name": "find-earlier-turn",
+          "startLine": 83,
+          "endLine": 85,
+          "focus": {
+            "startLine": 83,
+            "startColumn": 34,
+            "endLine": 83,
+            "endColumn": 47
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "files": {
+    "timing_card.rb": {
+      "regions": [
+        {
+          "name": "configure-bench",
+          "startLine": 43,
+          "endLine": 45,
+          "focus": {
+            "startLine": 45,
+            "startColumn": 20,
+            "endLine": 45,
+            "endColumn": 41
+          }
+        },
+        {
+          "name": "ask-for-slate",
+          "startLine": 47,
+          "endLine": 47,
+          "focus": {
+            "startLine": 47,
+            "startColumn": 14,
+            "endLine": 47,
+            "endColumn": 37
+          }
+        },
+        {
+          "name": "read-slate",
+          "startLine": 50,
+          "endLine": 53,
+          "focus": {
+            "startLine": 50,
+            "startColumn": 14,
+            "endLine": 50,
+            "endColumn": 27
+          }
+        }
+      ]
+    }
+  }
+}

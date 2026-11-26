@@ -1,0 +1,30 @@
+{
+  "feature": "chat-basics",
+  "title": "Chat basics",
+  "covers": [
+    "RubyLLM.chat",
+    "RubyLLM.context",
+    "RubyLLM::Chat#ask",
+    "RubyLLM::Chat#max_output_tokens",
+    "RubyLLM::Chat#messages",
+    "RubyLLM::Chat#model",
+    "RubyLLM::Chat#say",
+    "RubyLLM::Chat#temperature",
+    "RubyLLM::Chat#with_instructions",
+    "RubyLLM::Chat#with_max_output_tokens",
+    "RubyLLM::Chat#with_model",
+    "RubyLLM::Chat#with_provider_options",
+    "RubyLLM::Chat#with_temperature",
+    "RubyLLM::Context#chat",
+    "RubyLLM::Message#content",
+    "RubyLLM::Message#cost",
+    "RubyLLM::Message#finish_reason",
+    "RubyLLM::Message#max_tokens?",
+    "RubyLLM::Message#model",
+    "RubyLLM::Message#raw",
+    "RubyLLM::Message#role",
+    "RubyLLM::Message#stopped?",
+    "RubyLLM::Message#thinking",
+    "RubyLLM::Message#tokens"
+  ]
+}

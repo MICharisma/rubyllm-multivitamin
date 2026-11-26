@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "files": {
+    "booth_assignment.rb": {
+      "regions": [
+        {
+          "name": "configure-registrar",
+          "startLine": 45,
+          "endLine": 47,
+          "focus": {
+            "startLine": 45,
+            "startColumn": 6,
+            "endLine": 47,
+            "endColumn": 32
+          }
+        },
+        {
+          "name": "assign-booth",
+          "startLine": 49,
+          "endLine": 49,
+          "focus": {
+            "startLine": 49,
+            "startColumn": 14,
+            "endLine": 49,
+            "endColumn": 38
+          }
+        },
+        {
+          "name": "find-user-turn",
+          "startLine": 50,
+          "endLine": 50,
+          "focus": {
+            "startLine": 50,
+            "startColumn": 18,
+            "endLine": 50,
+            "endColumn": 31
+          }
+        },
+        {
+          "name": "read-assignment",
+          "startLine": 53,
+          "endLine": 53,
+          "focus": {
+            "startLine": 53,
+            "startColumn": 20,
+            "endLine": 53,
+            "endColumn": 33
+          }
+        },
+        {
+          "name": "recover-board",
+          "startLine": 55,
+          "endLine": 55,
+          "focus": {
+            "startLine": 55,
+            "startColumn": 20,
+            "endLine": 55,
+            "endColumn": 37
+          }
+        }
+      ]
+    }
+  }
+}

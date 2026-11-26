@@ -1,0 +1,48 @@
+{
+  "title": "Johannesburg clinic vitals round",
+  "source": "vitals_round.rb",
+  "steps": [
+    {
+      "label": "Give the round its own chat",
+      "api": "RubyLLM.chat",
+      "regions": [
+        {
+          "name": "open-round",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the clipboard reading",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-round",
+          "role": "primary"
+        },
+        {
+          "name": "open-round",
+          "role": "setup"
+        },
+        {
+          "name": "read-round",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Check whether the reply stopped normally",
+      "api": "RubyLLM::Message#stopped?",
+      "regions": [
+        {
+          "name": "check-stop",
+          "role": "primary"
+        },
+        {
+          "name": "ask-round",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "files": {
+    "call_sheet.rb": {
+      "regions": [
+        {
+          "name": "configure-studio",
+          "startLine": 51,
+          "endLine": 53,
+          "focus": {
+            "startLine": 51,
+            "startColumn": 15,
+            "endLine": 51,
+            "endColumn": 30
+          }
+        },
+        {
+          "name": "hand-over-sheet",
+          "startLine": 54,
+          "endLine": 55,
+          "focus": {
+            "startLine": 55,
+            "startColumn": 15,
+            "endLine": 55,
+            "endColumn": 41
+          }
+        },
+        {
+          "name": "ask-with-sheet",
+          "startLine": 56,
+          "endLine": 56,
+          "focus": {
+            "startLine": 56,
+            "startColumn": 19,
+            "endLine": 56,
+            "endColumn": 45
+          }
+        },
+        {
+          "name": "ask-without-sheet",
+          "startLine": 58,
+          "endLine": 59,
+          "focus": {
+            "startLine": 59,
+            "startColumn": 20,
+            "endLine": 59,
+            "endColumn": 45
+          }
+        },
+        {
+          "name": "compare-transcripts",
+          "startLine": 65,
+          "endLine": 70,
+          "focus": {
+            "startLine": 65,
+            "startColumn": 8,
+            "endLine": 70,
+            "endColumn": 9
+          }
+        },
+        {
+          "name": "open-studio-chat",
+          "startLine": 77,
+          "endLine": 79,
+          "focus": {
+            "startLine": 77,
+            "startColumn": 13,
+            "endLine": 77,
+            "endColumn": 24
+          }
+        },
+        {
+          "name": "set-seed",
+          "startLine": 80,
+          "endLine": 80,
+          "focus": {
+            "startLine": 80,
+            "startColumn": 6,
+            "endLine": 80,
+            "endColumn": 44
+          }
+        }
+      ]
+    }
+  }
+}
