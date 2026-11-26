@@ -55,20 +55,38 @@ module WarsawTramDepot
     def self.conduct
       configure
 
+      # region: instruct-dispatcher
+      # focus: chat.with_instructions(INSTRUCTIONS)
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: instruct-dispatcher
 
+      # region: brief-relief
+      # focus: chat.ask(BOARDS_QUESTION)
+      # region: ask-locker
+      # focus: chat.ask(LOCKER_QUESTION)
       turns = { brief: chat.ask(BOARDS_QUESTION), locker: chat.ask(LOCKER_QUESTION) }
+      # endregion: ask-locker
+      # endregion: brief-relief
       handover = turns.each_with_object({}) do |(name, message), slate|
+        # region: record-answer
+        # focus: message.finish_reason
         slate[name] = message.content
         slate[:"#{name}_finish"] = message.finish_reason
+        # endregion: record-answer
+        # region: record-tokens
+        # focus: message.tokens
         %i[input output].each do |direction|
           slate[:"#{name}_#{direction}_tokens"] = message.tokens.public_send(direction)
         end
+        # endregion: record-tokens
       end
 
+      # region: read-roles
+      # focus: chat.map(&:role)
       Result.new(**handover, roles: chat.map(&:role))
+      # endregion: read-roles
     end
 
     def self.configure = Multivitamin::Runtime.configure(provider: :openai)

@@ -40,17 +40,26 @@ module ChauxDeFondsChronometer
     def self.conduct
       configure
 
+      # region: configure-bench
+      # focus: with_temperature(0.0)
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
                    .with_instructions(INSTRUCTIONS)
                    .with_temperature(0.0)
+      # endregion: configure-bench
 
+      # region: ask-for-slate
+      # focus: chat.ask(CARD_QUESTION)
       reply = chat.ask(CARD_QUESTION)
+      # endregion: ask-for-slate
 
       Result.new(
+        # region: read-slate
+        # focus: reply.content
         card: reply.content,
         temperature: chat.temperature,
         finish_reason: reply.finish_reason,
         roles: chat.messages.map(&:role)
+        # endregion: read-slate
       )
     end
 

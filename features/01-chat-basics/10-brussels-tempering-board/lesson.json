@@ -1,0 +1,66 @@
+{
+  "title": "Brussels chocolate tempering board",
+  "source": "tempering_board.rb",
+  "steps": [
+    {
+      "label": "Set the temperature for the first board reading",
+      "api": "RubyLLM::Chat#with_temperature",
+      "regions": [
+        {
+          "name": "set-temperature",
+          "role": "primary"
+        },
+        {
+          "name": "instruct-chef",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Cap the output for that chat",
+      "api": "RubyLLM::Chat#with_max_output_tokens",
+      "regions": [
+        {
+          "name": "cap-reply",
+          "role": "primary"
+        },
+        {
+          "name": "set-temperature",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the board reading under those limits",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-with-cap",
+          "role": "primary"
+        },
+        {
+          "name": "cap-reply",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask a second chat with its temperature and cap unset",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-with-defaults",
+          "role": "primary"
+        },
+        {
+          "name": "ask-with-cap",
+          "role": "setup"
+        },
+        {
+          "name": "read-settings",
+          "role": "result"
+        }
+      ]
+    }
+  ]
+}

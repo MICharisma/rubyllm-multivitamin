@@ -54,17 +54,33 @@ module BengaluruInverterBoard
     def self.conduct
       configure
 
+      # region: open-chat
+      # focus: RubyLLM.chat
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
+      # endregion: open-chat
+      # region: configure-clerk
+      # focus: chat.with_instructions(INSTRUCTIONS)
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-clerk
 
+      # region: read-board
+      # focus: chat.ask(BOARD_QUESTION)
       opening = chat.ask(BOARD_QUESTION)
+      # endregion: read-board
+      # region: ask-about-aarti
+      # focus: chat.ask(AARTI_QUESTION)
       follow_up = chat.ask(AARTI_QUESTION)
+      # endregion: ask-about-aarti
 
       Result.new(
         opening: opening.content,
         follow_up: follow_up.content,
+        # region: read-roles
+        # focus: chat.messages.map(&:role)
         roles: chat.messages.map(&:role),
+        # endregion: read-roles
+        # region: read-usage
         opening_finish: opening.finish_reason,
         follow_up_finish: follow_up.finish_reason,
         opening_input_tokens: opening.tokens.input,
@@ -73,6 +89,7 @@ module BengaluruInverterBoard
         follow_up_output_tokens: follow_up.tokens.output,
         opening_cost: opening.cost.total,
         follow_up_cost: follow_up.cost.total
+        # endregion: read-usage
       )
     end
 

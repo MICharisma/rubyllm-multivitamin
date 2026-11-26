@@ -1,0 +1,52 @@
+{
+  "title": "Lagos ankara bale log for the morning receiving",
+  "source": "morning_bale.rb",
+  "steps": [
+    {
+      "label": "Log the bale at its posted length of 240 yards",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "log-bale",
+          "role": "primary"
+        },
+        {
+          "name": "configure-clerk",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Give the same chat Kemi's correction to 242 yards",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "correct-length",
+          "role": "primary"
+        },
+        {
+          "name": "log-bale",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the office recap using the corrected length",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "recap-receiving",
+          "role": "primary"
+        },
+        {
+          "name": "correct-length",
+          "role": "setup"
+        },
+        {
+          "name": "read-recap",
+          "role": "result"
+        }
+      ]
+    }
+  ]
+}

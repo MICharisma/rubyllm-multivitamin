@@ -1,0 +1,76 @@
+{
+  "title": "Bengaluru inverter board",
+  "source": "inverter_briefing.rb",
+  "steps": [
+    {
+      "label": "Open one chat for the household",
+      "api": "RubyLLM.chat",
+      "regions": [
+        {
+          "name": "open-chat",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Give the clerk instructions for both questions",
+      "api": "RubyLLM::Chat#with_instructions",
+      "regions": [
+        {
+          "name": "configure-clerk",
+          "role": "primary"
+        },
+        {
+          "name": "open-chat",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask when the washing machine and cart can run",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "read-board",
+          "role": "primary"
+        },
+        {
+          "name": "configure-clerk",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask about Uncle Ravi on the same chat",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-about-aarti",
+          "role": "primary"
+        },
+        {
+          "name": "read-board",
+          "role": "setup"
+        },
+        {
+          "name": "read-roles",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Read the finish reason, token counts, and cost for each answer",
+      "api": "RubyLLM::Message#cost",
+      "regions": [
+        {
+          "name": "read-usage",
+          "role": "primary"
+        },
+        {
+          "name": "ask-about-aarti",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

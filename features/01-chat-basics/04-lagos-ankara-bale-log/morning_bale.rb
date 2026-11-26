@@ -58,21 +58,35 @@ module LagosAnkaraBale
     def self.conduct
       configure
 
+      # region: configure-clerk
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-clerk
 
+      # region: log-bale
+      # focus: chat.ask(BALE_QUESTION)
       log_line = chat.ask(BALE_QUESTION)
+      # endregion: log-bale
+      # region: correct-length
+      # focus: chat.ask(CORRECTION_QUESTION)
       correction = chat.ask(CORRECTION_QUESTION)
+      # endregion: correct-length
+      # region: recap-receiving
+      # focus: chat.ask(RECAP_QUESTION)
       recap = chat.ask(RECAP_QUESTION)
+      # endregion: recap-receiving
 
       Result.new(
         log_line: log_line.content,
         correction: correction.content,
+        # region: read-recap
+        # focus: recap.content
         recap: recap.content,
         roles: chat.messages.map(&:role),
         log_input_tokens: log_line.tokens.input,
         recap_input_tokens: recap.tokens.input,
+        # endregion: read-recap
         log_finish: log_line.finish_reason,
         recap_finish: recap.finish_reason
       )

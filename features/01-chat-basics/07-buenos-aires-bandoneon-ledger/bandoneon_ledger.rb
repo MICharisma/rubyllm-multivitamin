@@ -44,18 +44,29 @@ module BuenosAiresBandoneon
     def self.conduct
       configure
 
+      # region: configure-technician
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-technician
 
+      # region: ask-reed
+      # focus: chat.say(REED_QUESTION)
       reed = chat.say(REED_QUESTION)
+      # endregion: ask-reed
+      # region: ask-overhaul
+      # focus: chat.say(OVERHAUL_QUESTION)
       overhaul = chat.say(OVERHAUL_QUESTION)
+      # endregion: ask-overhaul
 
       Result.new(
         reed: reed.content,
         overhaul: overhaul.content,
+        # region: read-ledger
+        # focus: chat.messages.map { |message| [message.role, message.content] }
         roles: chat.messages.map(&:role),
         transcript: chat.messages.map { |message| [message.role, message.content] }
+        # endregion: read-ledger
       )
     end
 

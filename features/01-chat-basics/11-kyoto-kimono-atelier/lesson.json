@@ -1,0 +1,72 @@
+{
+  "title": "Kyoto kimono atelier ticket",
+  "source": "kimono_ticket.rb",
+  "steps": [
+    {
+      "label": "Give Hanae the dresser's instructions",
+      "api": "RubyLLM::Chat#with_instructions",
+      "regions": [
+        {
+          "name": "instruct-dresser",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Ask about the ticket and count the messages",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "read-ticket",
+          "role": "primary"
+        },
+        {
+          "name": "instruct-dresser",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Report the hem change and count again",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "update-hem",
+          "role": "primary"
+        },
+        {
+          "name": "read-ticket",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Give Aiko her own instructions and ask on a separate chat",
+      "api": "RubyLLM::Chat#with_instructions",
+      "regions": [
+        {
+          "name": "instruct-bride",
+          "role": "primary"
+        },
+        {
+          "name": "ask-bride",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Check which transcript contains the nine-centimetre update",
+      "api": "RubyLLM::Chat#messages",
+      "regions": [
+        {
+          "name": "compare-histories",
+          "role": "primary"
+        },
+        {
+          "name": "update-hem",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

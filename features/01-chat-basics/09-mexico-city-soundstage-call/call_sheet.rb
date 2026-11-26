@@ -48,36 +48,56 @@ module MexicoCitySoundstage
     )
 
     def self.conduct
+      # region: configure-studio
+      # focus: RubyLLM.context
       studio = RubyLLM.context do |config|
         Multivitamin::Runtime.apply(config, provider: :openrouter)
       end
+      # endregion: configure-studio
+      # region: hand-over-sheet
+      # focus: reused.ask(SHEET_QUESTION)
       reused = open_chat(studio)
       monzon = reused.ask(SHEET_QUESTION)
+      # endregion: hand-over-sheet
+      # region: ask-with-sheet
+      # focus: reused.ask(PATIO_QUESTION)
       patio_same = reused.ask(PATIO_QUESTION)
+      # endregion: ask-with-sheet
 
+      # region: ask-without-sheet
+      # focus: fresh.ask(PATIO_QUESTION)
       fresh = open_chat(studio)
       patio_fresh = fresh.ask(PATIO_QUESTION)
+      # endregion: ask-without-sheet
 
       Result.new(
         monzon: monzon.content,
         patio_on_the_same_chat: patio_same.content,
         patio_on_a_fresh_chat: patio_fresh.content,
+        # region: compare-transcripts
         reused_roles: reused.messages.map(&:role),
         fresh_roles: fresh.messages.map(&:role),
         fresh_user_text: fresh.messages.find { |message| message.role == :user }.content,
         reused_still_has_sheet: reused.messages.any? { |message|
           message.role == :user && message.content.include?("Monzón del Palacio")
         }
+        # endregion: compare-transcripts
       )
     end
 
     def self.open_chat(studio)
       options = Multivitamin::Models.chat(provider: :openrouter)
       model, provider = options.values_at(:model, :provider)
+      # region: open-studio-chat
+      # focus: studio.chat
       chat = studio.chat(model:, provider:, assume_model_exists: provider == :openrouter)
                    .with_instructions(INSTRUCTIONS)
                    .with_temperature(0.2)
+      # endregion: open-studio-chat
+      # region: set-seed
+      # focus: chat.with_provider_options(seed: 1014)
       chat.with_provider_options(seed: 1014) if provider == :openrouter
+      # endregion: set-seed
       Multivitamin::Models.quiet_thinking(chat, provider: :openrouter)
     end
   end

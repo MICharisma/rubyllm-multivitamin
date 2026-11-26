@@ -1,0 +1,80 @@
+{
+  "title": "Accession tag for the Singapore Botanic Gardens",
+  "source": "accession_notice.rb",
+  "steps": [
+    {
+      "label": "Limit the first correction to 16 output tokens",
+      "api": "RubyLLM::Chat#with_max_output_tokens",
+      "regions": [
+        {
+          "name": "cap-slip",
+          "role": "primary"
+        },
+        {
+          "name": "configure-clerk",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the correction and check whether it was cut short",
+      "api": "RubyLLM::Message#max_tokens?",
+      "regions": [
+        {
+          "name": "check-length",
+          "role": "primary"
+        },
+        {
+          "name": "ask-slip",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Clear the limit when the first note is too short",
+      "api": "RubyLLM::Chat#with_max_output_tokens",
+      "regions": [
+        {
+          "name": "clear-cap",
+          "role": "primary"
+        },
+        {
+          "name": "check-length",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Request the full correction on the same chat",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-again",
+          "role": "primary"
+        },
+        {
+          "name": "clear-cap",
+          "role": "setup"
+        },
+        {
+          "name": "read-status",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Read the HTTP status alongside the posted correction",
+      "api": "RubyLLM::Message#raw",
+      "regions": [
+        {
+          "name": "read-status",
+          "role": "primary"
+        },
+        {
+          "name": "ask-again",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

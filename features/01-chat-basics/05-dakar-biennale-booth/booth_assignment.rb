@@ -42,17 +42,31 @@ module DakarBiennaleBooths
     def self.conduct
       configure
 
+      # region: configure-registrar
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-registrar
 
+      # region: assign-booth
+      # focus: chat.ask(BOARD_QUESTION)
       reply = chat.ask(BOARD_QUESTION)
+      # endregion: assign-booth
+      # region: find-user-turn
+      # focus: chat.messages
       user_turn = chat.messages.find { |message| message.role == :user }
+      # endregion: find-user-turn
 
       Result.new(
+        # region: read-assignment
+        # focus: reply.content
         assignment: reply.content,
+        # endregion: read-assignment
         roles: chat.messages.map(&:role),
+        # region: recover-board
+        # focus: user_turn.content
         user_board: user_turn.content,
+        # endregion: recover-board
         message_count: chat.messages.length
       )
     end

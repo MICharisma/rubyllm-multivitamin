@@ -1,0 +1,76 @@
+{
+  "title": "Warsaw tram depot handover across several boards",
+  "source": "depot_handover.rb",
+  "steps": [
+    {
+      "label": "Give the dispatcher instructions for both boards",
+      "api": "RubyLLM::Chat#with_instructions",
+      "regions": [
+        {
+          "name": "instruct-dispatcher",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Ask for the timetable and frost briefing",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "brief-relief",
+          "role": "primary"
+        },
+        {
+          "name": "instruct-dispatcher",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Follow up about the paint locker on the same chat",
+      "api": "RubyLLM::Chat#ask",
+      "regions": [
+        {
+          "name": "ask-locker",
+          "role": "primary"
+        },
+        {
+          "name": "brief-relief",
+          "role": "setup"
+        },
+        {
+          "name": "read-roles",
+          "role": "result"
+        }
+      ]
+    },
+    {
+      "label": "Keep the answer and finish reason under each turn's name",
+      "api": "RubyLLM::Message#finish_reason",
+      "regions": [
+        {
+          "name": "record-answer",
+          "role": "primary"
+        },
+        {
+          "name": "ask-locker",
+          "role": "setup"
+        }
+      ]
+    },
+    {
+      "label": "Record input and output token counts for each named turn",
+      "api": "RubyLLM::Message#tokens",
+      "regions": [
+        {
+          "name": "record-tokens",
+          "role": "primary"
+        },
+        {
+          "name": "brief-relief",
+          "role": "setup"
+        }
+      ]
+    }
+  ]
+}

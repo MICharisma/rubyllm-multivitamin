@@ -56,18 +56,35 @@ module SingaporeAccession
     def self.conduct
       configure
 
+      # region: configure-clerk
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-clerk
+      # region: cap-slip
+      # focus: chat.with_max_output_tokens(CLIP)
       chat.with_max_output_tokens(CLIP)
+      # endregion: cap-slip
 
+      # region: ask-slip
+      # focus: chat.ask(SLIP_QUESTION)
       clipped = chat.ask(SLIP_QUESTION)
+      # endregion: ask-slip
+      # region: check-length
+      # focus: clipped.max_tokens?
       clipped_text = clipped.content.to_s.strip
       short_note = clipped_text.empty? || clipped.max_tokens? || clipped_text.length < SHORT_LENGTH
+      # endregion: check-length
 
       if short_note
+        # region: clear-cap
+        # focus: chat.with_max_output_tokens(nil)
         chat.with_max_output_tokens(nil)
+        # endregion: clear-cap
+        # region: ask-again
+        # focus: chat.ask(REST_QUESTION)
         posted = chat.ask(REST_QUESTION)
+        # endregion: ask-again
         asked_again = true
       else
         posted = clipped
@@ -81,9 +98,12 @@ module SingaporeAccession
         clipped_max_tokens: clipped.max_tokens?,
         clipped_status: clipped.raw.status,
         asked_again: asked_again,
+        # region: read-status
+        # focus: posted.raw.status
         posted_content: posted.content,
         posted_status: posted.raw.status,
         posted_finish: posted.finish_reason,
+        # endregion: read-status
         roles: chat.messages.map(&:role)
       )
     end

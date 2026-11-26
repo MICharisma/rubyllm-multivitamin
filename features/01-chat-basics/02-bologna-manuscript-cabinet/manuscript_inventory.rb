@@ -49,20 +49,34 @@ module BolognaManuscriptCabinet
     def self.conduct
       configure
 
+      # region: configure-chat
       chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
       chat.with_instructions(INSTRUCTIONS)
       chat.with_temperature(0.2)
+      # endregion: configure-chat
 
+      # region: ask-cabinet
+      # focus: chat.ask(CABINET_QUESTION)
       reply = chat.ask(CABINET_QUESTION)
+      # endregion: ask-cabinet
 
       Result.new(
+        # region: read-answer
+        # focus: reply.content
         content: reply.content,
         role: reply.role,
+        # endregion: read-answer
+        # region: compare-models
+        # focus: reply.model
         model_id: reply.model,
         chat_model_id: chat.model.id,
+        # endregion: compare-models
+        # region: read-usage
+        # focus: reply.tokens.input
         finish_reason: reply.finish_reason,
         input_tokens: reply.tokens.input,
         output_tokens: reply.tokens.output,
+        # endregion: read-usage
         roles: chat.messages.map(&:role)
       )
     end

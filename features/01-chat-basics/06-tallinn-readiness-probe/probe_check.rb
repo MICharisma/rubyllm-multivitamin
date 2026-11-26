@@ -54,35 +54,54 @@ module TallinnReadinessProbe
     def self.conduct
       configure
 
+      # region: configure-probe
       mini = open_chat(Multivitamin::Models::OPENAI_CHAT)
       mini.with_instructions(INSTRUCTIONS)
       mini.with_temperature(0.2)
+      # endregion: configure-probe
+      # region: ask-probe
+      # focus: mini.ask(PROBE_QUESTION)
       mini_reply = mini.ask(PROBE_QUESTION)
+      # endregion: ask-probe
 
+      # region: switch-model
+      # focus: mini.with_model
       mini.with_model(
         Multivitamin::Models::OPENAI_CHAT_SWITCH,
         provider: :openai
       )
+      # endregion: switch-model
+      # region: ask-spare
+      # focus: mini.ask(SPARE_QUESTION)
       spare_reply = mini.ask(SPARE_QUESTION)
+      # endregion: ask-spare
 
+      # region: fresh-probe
+      # focus: four_o.ask(PROBE_QUESTION)
       four_o = open_chat(Multivitamin::Models::OPENAI_CHAT_SWITCH)
       four_o.with_instructions(INSTRUCTIONS)
       four_o.with_temperature(0.2)
       four_o_reply = four_o.ask(PROBE_QUESTION)
+      # endregion: fresh-probe
 
       Result.new(
         mini: mini_reply.content,
+        # region: returned-models
         mini_model_id: mini_reply.model,
         spare: spare_reply.content,
         spare_model_id: spare_reply.model,
         switched_chat_model_id: mini.model.id,
         four_o: four_o_reply.content,
         four_o_model_id: four_o_reply.model,
+        # endregion: returned-models
         switched_roles: mini.messages.map(&:role),
         fresh_roles: four_o.messages.map(&:role),
+        # region: find-earlier-turn
+        # focus: mini.messages
         first_user_still_present: mini.messages.any? { |message|
           message.role == :user && message.content.include?("9 seconds")
         }
+        # endregion: find-earlier-turn
       )
     end
 

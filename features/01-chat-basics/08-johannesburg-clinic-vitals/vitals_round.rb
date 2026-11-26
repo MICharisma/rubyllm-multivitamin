@@ -41,18 +41,30 @@ module JohannesburgClinicVitals
 
     def initialize
       self.class.configure
+      # region: open-round
+      # focus: RubyLLM.chat
       @chat = RubyLLM.chat(**Multivitamin::Models.chat(provider: :openai))
                      .with_instructions(INSTRUCTIONS)
                      .with_temperature(0.2)
+      # endregion: open-round
     end
 
     def conduct
+      # region: ask-round
+      # focus: chat.ask(ROUND_QUESTION)
       reply = chat.ask(ROUND_QUESTION)
+      # endregion: ask-round
 
       Result.new(
+        # region: read-round
+        # focus: reply.content
         round: reply.content,
+        # endregion: read-round
+        # region: check-stop
+        # focus: reply.stopped?
         stopped: reply.stopped?,
         finish_reason: reply.finish_reason,
+        # endregion: check-stop
         roles: chat.messages.map(&:role)
       )
     end

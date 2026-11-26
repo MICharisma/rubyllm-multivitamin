@@ -73,23 +73,39 @@ module KyotoKimonoAtelier
     def self.conduct
       configure
 
+      # region: instruct-dresser
+      # focus: dresser.with_instructions(DRESSER_INSTRUCTIONS)
       dresser = open_chat
       dresser.with_instructions(DRESSER_INSTRUCTIONS)
       dresser.with_temperature(0.2)
+      # endregion: instruct-dresser
+      # region: read-ticket
+      # focus: dresser.ask(TICKET_QUESTION)
       first = dresser.ask(TICKET_QUESTION)
       after_first = dresser.messages.length
+      # endregion: read-ticket
+      # region: update-hem
+      # focus: dresser.ask(HEM_QUESTION)
       hail = dresser.ask(HEM_QUESTION)
       after_hail = dresser.messages.length
+      # endregion: update-hem
 
+      # region: instruct-bride
+      # focus: bride.with_instructions(BRIDE_INSTRUCTIONS)
       bride = open_chat
       bride.with_instructions(BRIDE_INSTRUCTIONS)
       bride.with_temperature(0.2)
+      # endregion: instruct-bride
+      # region: ask-bride
+      # focus: bride.ask(BRIDE_QUESTION)
       bride_reply = bride.ask(BRIDE_QUESTION)
+      # endregion: ask-bride
 
       Result.new(
         first_stitch: first.content,
         after_the_hail: hail.content,
         bride: bride_reply.content,
+        # region: compare-histories
         dresser_lengths: [after_first, after_hail],
         bride_length: bride.messages.length,
         dresser_roles: dresser.messages.map(&:role),
@@ -102,6 +118,7 @@ module KyotoKimonoAtelier
         hem_hail_on_the_bride_chat: bride.messages.any? { |message|
           message.content.to_s.include?("9 cm")
         }
+        # endregion: compare-histories
       )
     end
 

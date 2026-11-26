@@ -48,23 +48,39 @@ module BrusselsTempering
     def self.conduct
       configure
 
+      # region: instruct-chef
       held = open_chat
       held.with_instructions(INSTRUCTIONS)
+      # endregion: instruct-chef
+      # region: set-temperature
+      # focus: held.with_temperature(0.1)
       held.with_temperature(0.1)
+      # endregion: set-temperature
+      # region: cap-reply
+      # focus: held.with_max_output_tokens(HELD_OUTPUT_CAP)
       held.with_max_output_tokens(HELD_OUTPUT_CAP)
+      # endregion: cap-reply
+      # region: ask-with-cap
+      # focus: held.ask(BOARD_QUESTION)
       held_reply = held.ask(BOARD_QUESTION)
+      # endregion: ask-with-cap
 
+      # region: ask-with-defaults
+      # focus: unset.ask(BOARD_QUESTION)
       unset = open_chat
       unset.with_instructions(INSTRUCTIONS)
       unset_reply = unset.ask(BOARD_QUESTION)
+      # endregion: ask-with-defaults
 
       Result.new(
         held: held_reply.content,
         unset: unset_reply.content,
+        # region: read-settings
         held_temperature: held.temperature,
         unset_temperature: unset.temperature,
         held_output_cap: held.max_output_tokens,
         unset_output_cap: unset.max_output_tokens
+        # endregion: read-settings
       )
     end
 

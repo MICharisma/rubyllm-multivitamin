@@ -1,0 +1,10 @@
+{
+  "name": "rubyllm",
+  "title": "RubyLLM multivitamin",
+  "language": "ruby",
+  "grammar": "ruby",
+  "repo": "MICharisma/rubyllm-multivitamin",
+  "features": [
+    "01-chat-basics"
+  ]
+}
